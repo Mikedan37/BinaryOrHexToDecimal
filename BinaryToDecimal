@@ -1,0 +1,28 @@
+import math as mt
+"""
+Binary to decimal value 16 bit:
+----------------------------------------------------------------------------
+| 32,768 16,384 8,192 4,096 | 2,048 1,024 512 256 | 128 64 32 16 | 8 4 2 1 |
+----------------------------------------------------------------------------
+"""
+# Runs problem ones function which converts a binary input to its integer equivalent
+# B_U_I := Binary Unsigned Integer
+def Prog_Prob_1(B_U_I):
+    
+    #IntegerValue = integer variable that holds a summation of calculated decimal values
+    IntegerValue = 0
+    #Converts User input B_U_I to list
+    BinaryList = list(B_U_I)
+    #Reverses the list
+    BinaryList.reverse()
+    
+    #Iterates through length of the list
+    for i in range(len(BinaryList)):
+        #Adds ((1 or 0) * 2 ^ i) for given index 
+        IntegerValue += int(int(BinaryList[i]) * mt.pow(2, i))
+    #Returns an Integer which is the decimal value of the input binary number
+    return IntegerValue
+    
+# Runs Problem 1 Three Times
+for i in range(3):
+    print("Answer: " + str(Prog_Prob_1(input("Please Enter a 16 bit \"Binary Unsigned Integer\" without spaces:\n0b"))))
