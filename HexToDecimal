@@ -1,0 +1,31 @@
+import math as mt
+"""
+Hexadecimal -> Decimal Key:
+-------------------------------------------------------------------------------------------------
+|1 = 1|2 = 2|3 = 3|4 = 4|5 = 5|6 = 6|7 = 7|8 = 8|9 = 9|A = 10|B = 11|C = 12|D = 13|E = 14|F = 15|
+-------------------------------------------------------------------------------------------------
+"""
+# Runs problem twos function which converts a hexadecimal input to its integer equivalent
+# H_U_I := Hexadecimal Unsigned Integer
+def Prog_Prop_2(H_U_I):
+    
+    #IntegerValue = integer variable that holds a summation of calculated decimal values
+    IntegerValue = 0
+    #Converts User input H_U_I to list
+    HexadecimalList = list(H_U_I)
+    #Reverses the list
+    HexadecimalList.reverse()
+    #Dictionary of hex to decimal
+    HexadecimalDict = {'0': 0, '1': 1, '2': 2, '3': 3, '4': 4, '5': 5, '6': 6, '7': 7, '8': 8, '9': 9, 'A': 10, "B": 11, 'C': 12, 'D': 13, 'E': 14, 'F': 15}
+    
+    #Iterates through the length of the list
+    for j in range(len(HexadecimalList)):
+        #Adds integer value of hexadecimal at each index times 16 ^ of that index
+        IntegerValue += (int(HexadecimalDict[HexadecimalList[j]] * mt.pow(16, j))) 
+    #Returns an Integer which is the decimal value of the input binary number
+    return IntegerValue
+    
+# Runs Problem 2 Three Times
+for j in range(3):
+    print("Answer: " + str(Prog_Prop_2(input("Please Enter a 32 bit \"Hexadecimal Unsigned Integer\" without spaces:\n0x").upper())))
+    
